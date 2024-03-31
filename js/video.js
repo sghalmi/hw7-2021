@@ -8,7 +8,7 @@ window.addEventListener("load", function () {
 //Play the video and update the volume information.  
 document.getElementById("play").addEventListener("click", function () {
 	video.play();
-	document.getElementById("volume").innerHTML = volume * 100 + '%';
+	document.getElementById("volume").innerHTML = video.volume * 100 + '%';
 	console.log(video.volume);
 });
 //Pause the video.
