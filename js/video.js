@@ -3,12 +3,12 @@ var volume = 1;
 
 window.addEventListener("load", function () {
 	console.log("Good job opening the window");
-
 });
 
 //Play the video and update the volume information.  
 document.getElementById("play").addEventListener("click", function () {
 	video.play();
+	document.getElementById("volume").innerHTML = volume * 100 + '%';
 	console.log(video.volume);
 });
 //Pause the video.
@@ -42,17 +42,17 @@ document.getElementById("skip").addEventListener("click", function () {
 document.getElementById("mute").addEventListener("click", function () {
 	if (video.volume == 0) {
 		video.volume = volume;
-		document.getElementById("volume").innerHTML = volume * 100;
+		document.getElementById("volume").innerHTML = volume * 100 + '%';
 	}
 	else {
-		document.getElementById("volume").innerHTML = 0;
+		document.getElementById("volume").innerHTML = 0 + '%';
 		video.volume = 0;
 	}
 });
 
 // Change the volume based on the slider and update the volume information.
 document.getElementById('slider').addEventListener('input', function () {
-	document.getElementById("volume").innerHTML = slider.value;
+	document.getElementById("volume").innerHTML = slider.value + '%';
 	volume = slider.value / 100;
 	video.volume = volume;
 });
