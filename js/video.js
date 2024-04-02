@@ -40,12 +40,16 @@ document.getElementById("skip").addEventListener("click", function () {
 
 //Mute/unmute the video and update the text in the button.
 document.getElementById("mute").addEventListener("click", function () {
+	//muted attribute - event listener
 	if (video.volume == 0) {
 		video.volume = volume;
 		document.getElementById("volume").innerHTML = volume * 100 + '%';
+		document.getElementById("slider").value = volume * 100;
 	}
 	else {
 		document.getElementById("volume").innerHTML = 0 + '%';
+		document.getElementById("slider").value = 0;
+
 		video.volume = 0;
 	}
 });
