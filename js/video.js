@@ -43,25 +43,14 @@ document.getElementById("skip").addEventListener("click", function () {
 document.getElementById("mute").addEventListener("click", function () {
 	//muted attribute - event listener
 	if (!video.muted) {
-		video.volume = volume;
+		document.getElementById("mute").innerHTML = "Unmute";
+
 		video.muted = true;
-        document.getElementById("volume").innerHTML = '0%';
 	}
 	else{
+		document.getElementById("mute").innerHTML = "Mute";
 		video.muted = false;
-        video.volume = volume;
-		document.getElementById("volume").innerHTML = (volume * 100) + '%';
 	}
-	// if (video.volume == 0) {
-	// 	video.volume = volume;
-	// 	document.getElementById("volume").innerHTML = volume * 100 + '%';
-	// 	document.getElementById("slider").value = volume * 100;
-	// }
-	// else {
-	// 	document.getElementById("volume").innerHTML = 0 + '%';
-	// 	document.getElementById("slider").value = 0;
-	// 	video.volume = 0;
-	// }
 });
 
 // Change the volume based on the slider and update the volume information.
