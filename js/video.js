@@ -1,5 +1,6 @@
 var video = document.getElementById("player1");
 var volume = 1;
+var muted = false;
 
 window.addEventListener("load", function () {
 	console.log("Good job opening the window");
@@ -41,17 +42,26 @@ document.getElementById("skip").addEventListener("click", function () {
 //Mute/unmute the video and update the text in the button.
 document.getElementById("mute").addEventListener("click", function () {
 	//muted attribute - event listener
-	if (video.volume == 0) {
+	if (!video.muted) {
 		video.volume = volume;
-		document.getElementById("volume").innerHTML = volume * 100 + '%';
-		document.getElementById("slider").value = volume * 100;
+		video.muted = true;
+        document.getElementById("volume").innerHTML = '0%';
 	}
-	else {
-		document.getElementById("volume").innerHTML = 0 + '%';
-		document.getElementById("slider").value = 0;
-
-		video.volume = 0;
+	else{
+		video.muted = false;
+        video.volume = volume;
+		document.getElementById("volume").innerHTML = (volume * 100) + '%';
 	}
+	// if (video.volume == 0) {
+	// 	video.volume = volume;
+	// 	document.getElementById("volume").innerHTML = volume * 100 + '%';
+	// 	document.getElementById("slider").value = volume * 100;
+	// }
+	// else {
+	// 	document.getElementById("volume").innerHTML = 0 + '%';
+	// 	document.getElementById("slider").value = 0;
+	// 	video.volume = 0;
+	// }
 });
 
 // Change the volume based on the slider and update the volume information.
